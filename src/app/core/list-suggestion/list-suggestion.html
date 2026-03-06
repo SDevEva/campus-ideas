@@ -1,0 +1,65 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-5 fw-bold display-5">Liste des suggestions</h2>
+
+  <!-- Barre de recherche -->
+  <div class="search-bar-container mb-5 shadow-sm rounded-3">
+    <input
+      type="text"
+      class="form-control form-control-lg border-2"
+      placeholder="Rechercher une suggestion"
+      [(ngModel)]="searchText"
+    />
+  </div>
+
+  <!-- Mes Favoris Section (Summary) -->
+  <div class="favorites-section mb-5" *ngIf="favorites().length > 0">
+    <div class="d-flex flex-wrap gap-2">
+      <div *ngFor="let fav of favorites()" class="favorite-pill badge rounded-pill p-3 px-4 fw-normal text-dark shadow-sm border-0">
+        {{ fav.title }}
+      </div>
+    </div>
+  </div>
+
+  <!-- Liste des suggestions -->
+  <div class="suggestions-list">
+    <div *ngFor="let suggestion of getFilteredSuggestions()" class="card mb-4 border-0 shadow-sm rounded-4 position-relative">
+      <div class="card-body p-4">
+        <h3 class="card-title fw-bold mb-1">{{ suggestion.title }}</h3>
+        
+        <div class="suggestion-meta mb-3">
+          <span class="category-name text-primary fw-bold me-2">{{ suggestion.category }}</span>
+          <span class="date-text text-muted">{{ suggestion.date | date:'dd MMM yyyy' }}</span>
+        </div>
+
+        <p class="card-text text-secondary mb-4 fs-5">{{ suggestion.description }}</p>
+
+        <!-- Statut -->
+        <div class="mb-4">
+          <span
+            class="badge p-2 px-3 rounded-pill text-uppercase fs-6"
+            [ngClass]="{
+              'status-badge-acceptee': suggestion.status === 'acceptee',
+              'status-badge-refusee': suggestion.status === 'refusee',
+              'status-badge-attente': suggestion.status === 'en_attente'
+            }"
+          >
+            {{ suggestion.status === 'acceptee' ? 'ACCEPTÉE' : suggestion.status === 'refusee' ? 'REFUSÉE' : 'EN ATTENTE' }}
+          </span>
+        </div>
+
+        <!-- Boutons Like et Favoris (cachés si refusée) -->
+        <div *ngIf="suggestion.status !== 'refusee'" class="d-flex gap-3 mt-auto">
+          <button (click)="like(suggestion)" class="btn btn-primary d-flex align-items-center gap-2 px-4 py-2 rounded-3 shadow-none fw-bold">
+            <i class="bi bi-hand-thumbs-up-fill"></i>
+            👍 Like {{ suggestion.nbLikes }}
+          </button>
+          
+          <button (click)="addToFavorites(suggestion)" class="btn btn-light border d-flex align-items-center gap-2 px-4 py-2 rounded-3 shadow-none fw-bold">
+            <i class="bi bi-heart"></i>
+            ♡ Ajouter aux favoris
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

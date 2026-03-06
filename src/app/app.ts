@@ -1,12 +1,16 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { HeaderComponent } from './core/header/header';
+import { FooterComponent } from './core/footer/footer';
+import { ListSuggestionComponent } from './core/list-suggestion/list-suggestion';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [RouterOutlet, HeaderComponent, FooterComponent, ListSuggestionComponent],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css']
 })
 export class App {
-  protected readonly title = signal('campus-ideas');
+  title = 'campus-ideas';
 }

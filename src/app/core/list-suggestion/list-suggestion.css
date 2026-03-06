@@ -1,0 +1,70 @@
+.card {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  border: 1px solid rgba(0,0,0,0.05);
+  background-color: #fff;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 .5rem 1.5rem rgba(0,0,0,0.1) !important;
+}
+
+.status-badge-acceptee {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-badge-refusee {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.status-badge-attente {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.search-bar-container input {
+  padding: 1.25rem 1rem;
+  font-size: 1.15rem;
+  border-radius: 12px;
+  border-color: #eee;
+}
+
+.search-bar-container input::placeholder {
+  color: #adadad;
+}
+
+.category-name {
+  font-size: 0.9rem;
+  text-transform: capitalize;
+}
+
+.btn-primary {
+  background-color: #0d6efd;
+  border: none;
+}
+
+.btn-light {
+  background-color: #f8f9fa;
+  color: #212529;
+}
+
+.suggestions-list {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.favorite-pill {
+  background-color: #e9ecef;
+  font-size: 1.1rem;
+  transition: all 0.2s ease;
+}
+
+.favorite-pill:hover {
+  background-color: #dee2e6;
+}
+
+.favorites-section h3 {
+  color: #343a40;
+}
