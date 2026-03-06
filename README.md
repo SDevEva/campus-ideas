@@ -1,59 +1,49 @@
-# CampusIdeas
+# Campus Ideas 🎓💡
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.1.
+Une application Angular moderne pour soumettre, liker et gérer les suggestions au sein du campus.
 
-## Development server
+## 🚀 Fonctionnalités
 
-To start a local development server, run:
+- **Liste de Suggestions** : Affichage dynamique des idées proposées avec filtrage instantané par titre ou catégorie.
+- **Data Binding complet** : 
+  - Interpolation (`{{ }}`) pour l'affichage fluide des données.
+  - Property Binding (`[property]`) pour le style dynamique des badges (Accepté/Refusé/En attente).
+  - Event Binding (`(event)`) pour les interactions (Likes, Favoris).
+  - Two-way Data Binding (`[(ngModel)]`) pour la barre de recherche interactive.
+- **Gestion des Favoris** : Système global intégré au Header utilisant les **Angular Signals**.
+- **Interface Moderne** : Navigation fluide, interface responsive avec Bootstrap 5 et un design épuré.
 
-```bash
-ng serve
-```
+## 🛠️ Installation et Lancement
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+1. **Cloner le dépôt** :
+   ```bash
+   git clone [votre-url-github]
+   cd campus-ideas
+   ```
 
-## Code scaffolding
+2. **Installer les dépendances** :
+   ```bash
+   npm install
+   ```
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+3. **Démarrer le serveur de développement** :
+   ```bash
+   ng serve
+   ```
+   L'application sera accessible sur `http://localhost:4200/`.
 
-```bash
-ng generate component component-name
-```
+## 🏗️ Structure du Projet
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- **`src/app/core`** : Composants structurels (Header, Footer, ListSuggestion).
+- **`src/app/models`** : Définition des interfaces de données Sugggestion.
+- **`FavoritesService`** : Service centralisé de gestion d'état utilisant les Signals.
 
-```bash
-ng generate --help
-```
+## 📝 Technologies utilisées
 
-## Building
+- **Angular 19+** (Composants Standalone, Signals)
+- **Bootstrap 5 & Lucide Icons**
+- **TypeScript**
 
-To build the project run:
+---
+*Projet Campus Ideas - Mars 2026*
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
