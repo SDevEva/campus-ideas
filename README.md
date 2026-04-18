@@ -1,8 +1,8 @@
-# Campus Ideas 🎓💡
+# Campus Ideas 
 
 Une application Angular moderne pour soumettre, liker et gérer les suggestions au sein du campus.
 
-## 🚀 Fonctionnalités
+##  Fonctionnalités
 
 - **Liste de Suggestions** : Affichage dynamique des idées proposées avec filtrage instantané par titre ou catégorie.
 - **Data Binding complet** : 
@@ -13,7 +13,7 @@ Une application Angular moderne pour soumettre, liker et gérer les suggestions 
 - **Gestion des Favoris** : Système global intégré au Header utilisant les **Angular Signals**.
 - **Interface Moderne** : Navigation fluide, interface responsive avec Bootstrap 5 et un design épuré.
 
-## 🛠️ Installation et Lancement
+##  Installation et Lancement
 
 1. **Cloner le dépôt** :
    ```bash
@@ -32,18 +32,17 @@ Une application Angular moderne pour soumettre, liker et gérer les suggestions 
    ```
    L'application sera accessible sur `http://localhost:4200/`.
 
-## 🏗️ Structure du Projet
+##  Structure du Projet
 
 - **`src/app/core`** : Composants structurels (Header, Footer, ListSuggestion).
 - **`src/app/models`** : Définition des interfaces de données Sugggestion.
 - **`FavoritesService`** : Service centralisé de gestion d'état utilisant les Signals.
 
-## 📝 Technologies utilisées
+##  Technologies utilisées
 
 - **Angular 19+** (Composants Standalone, Signals)
 - **Bootstrap 5 & Lucide Icons**
 - **TypeScript**
 
----
-*Projet Campus Ideas - Mars 2026*
+
 

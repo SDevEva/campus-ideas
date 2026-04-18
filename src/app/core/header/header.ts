@@ -1,11 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { FavoritesService } from '../favorites.service';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './header.html',
   styleUrls: ['./header.css'],
 })

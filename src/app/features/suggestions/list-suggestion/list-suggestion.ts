@@ -1,36 +1,38 @@
-import { Component, inject } from '@angular/core';
-import { Suggestion } from '../../models/suggestion';
+import { Component, inject, OnInit } from '@angular/core';
+import { Suggestion } from '../../../models/suggestion';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { FavoritesService } from '../favorites.service';
+import { RouterModule, Router } from '@angular/router';
+import { FavoritesService } from '../../../core/favorites.service';
 
 @Component({
   selector: 'app-list-suggestion',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './list-suggestion.html',
   styleUrls: ['./list-suggestion.css'],
 })
-export class ListSuggestionComponent {
+export class ListSuggestionComponent implements OnInit {
   
   searchText: string = '';
   private favoritesService = inject(FavoritesService);
+  private router = inject(Router);
   favorites = this.favoritesService.getFavorites();
 
   suggestions: Suggestion[] = [
     {
       id: 1,
-      title: 'Organiser une journÃ©e team building',
-      description: 'Suggestion pour organiser une journÃ©e de team building pour renforcer les liens entre les membres de l\'Ã©quipe.',
-      category: 'Ã‰vÃ©nements',
+      title: 'Organiser une journée team building',
+      description: 'Suggestion pour organiser une journée de team building pour renforcer les liens entre les membres de l\'équipe.',
+      category: 'Événements',
       date: new Date('2025-01-20'),
       status: 'acceptee',
       nbLikes: 10
     },
     {
       id: 2,
-      title: 'AmÃ©liorer le systÃ¨me de rÃ©servation',
-      description: 'Proposition pour amÃ©liorer la gestion des rÃ©servations en ligne avec un systÃ¨me de confirmation automatique.',
+      title: 'Améliorer le système de réservation',
+      description: 'Proposition pour améliorer la gestion des réservations en ligne avec un système de confirmation automatique.',
       category: 'Technologie',
       date: new Date('2025-01-15'),
       status: 'refusee',
@@ -38,8 +40,8 @@ export class ListSuggestionComponent {
     },
     {
       id: 3,
-      title: 'CrÃ©er un systÃ¨me de rÃ©compenses',
-      description: 'Mise en place d\'un programme de rÃ©compenses pour motiver les employÃ©s et reconnaÃ®tre leurs efforts.',
+      title: 'Créer un système de récompenses',
+      description: 'Mise en place d\'un programme de récompenses pour motiver les employés et reconnaître leurs efforts.',
       category: 'Ressources Humaines',
       date: new Date('2025-01-25'),
       status: 'refusee',
@@ -48,13 +50,20 @@ export class ListSuggestionComponent {
     {
       id: 4,
       title: 'Moderniser l\'interface utilisateur',
-      description: 'Refonte complÃ¨te de l\'interface utilisateur pour une meilleure expÃ©rience utilisateur.',
+      description: 'Refonte complète de l\'interface utilisateur pour une meilleure expérience utilisateur.',
       category: 'Technologie',
       date: new Date('2025-01-30'),
       status: 'en_attente',
       nbLikes: 0
     }
   ];
+
+  ngOnInit() {
+    const newSuggestion = history.state?.['data'];
+    if (newSuggestion && !this.suggestions.find(s => s.id === newSuggestion.id)) {
+      this.suggestions.push(newSuggestion);
+    }
+  }
 
   getFilteredSuggestions(): Suggestion[] {
     return this.suggestions.filter(s =>
